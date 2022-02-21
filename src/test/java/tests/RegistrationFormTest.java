@@ -27,7 +27,7 @@ public class RegistrationFormTest {
         String month = "January";
         String day = "17";
         String subject1 = "Physics";
-        String subject2 = "maths"; //use only lower case - need for test with dropdown
+        String subject2 = "maths"; //use only lower case - need for testing dropdown
         String verifySubject2 = subject2.substring(0, 1).toUpperCase() + subject2.substring(1);
         String hobby = "Music";
         String photo = "test.jpg";

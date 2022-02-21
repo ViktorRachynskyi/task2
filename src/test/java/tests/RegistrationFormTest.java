@@ -18,37 +18,68 @@ public class RegistrationFormTest {
 
     @Test
     void registrationFormTest() {
+        String firstName = "Elon";
+        String lastName = "Mask";
+        String email = "tesla-mail@space.com";
+        String sex = "Female";
+        String phone = "0676767676";
+        String year = "1998";
+        String month = "January";
+        String day = "17";
+        String subject1 = "Physics";
+        String subject2 = "maths"; //use only lower case - need for test with dropdown
+        String verifySubject2 = subject2.substring(0, 1).toUpperCase() + subject2.substring(1);
+        String hobby = "Music";
+        String photo = "test.jpg";
+        String address = "Mars str. 447/1";
+        String state = "Haryana";
+        String city = "Karnal";
 
         open("/automation-practice-form");
 
-        $(".main-header").should(matchText("Practice Form"));
+        //fields
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
+        $("#userNumber").setValue(phone);
 
-        $("#firstName").setValue("Elon");
-        $("#lastName").setValue("Mask");
-        $("#userEmail").setValue("tesla-mail@space.com");
-        $(byText("Female")).click();
-//        $("#gender-radio-2").selectRadio("Female");    -----    why this code isn't work?
-        $("#userNumber").setValue("0676767676");
+        //radio buttons & checkboxes
+        $(byText(sex)).click();
+        $(byText(hobby)).click();
+//        $("#gender-radio-2").selectRadio(sex);    -----    why this code isn't work?
+
+        //calendar
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOption("1998");
-        $(".react-datepicker__month-select").selectOption("January");
-        $("[aria-label*='17th']").click();
-        $("#subjectsInput").setValue("Physics").pressEnter();
-        $("#subjectsInput").setValue("maths");
-        $(byText("Maths")).click();
-        $(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("pictures/test.jpg");
-        $("#currentAddress").setValue("Mars str. 447/1");
+        $(".react-datepicker__year-select").selectOption(year);
+        $(".react-datepicker__month-select").selectOption(month);
+        $("[aria-label*='" + day + "th']").click();
+
+        //dropdowns
+        $("#subjectsInput").setValue(subject1).pressEnter();
+        $("#subjectsInput").setValue(subject2);
+        $(byText(verifySubject2)).click();
+        $("#currentAddress").setValue(address);
         $("#state").scrollTo().click();
-        $(byText("Haryana")).click();
+        $(byText(state)).click();
         $("#city").click();
-        $(byText("Karnal")).click();
+        $(byText(city)).click();
+
+        //uploading form
+        $("#uploadPicture").uploadFromClasspath("pictures/" + photo);
+
         $("#submit").click();
 
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Student Name Elon Mask"), text("Student Email tesla-mail@space.com"),
-                text("Gender Female"), text("Mobile 0676767676"), text("Date of Birth 17 January,1998"),
-                text("Subjects Physics, Maths"), text("Hobbies Music"), text("Picture test.jpg"),
-                text("Address Mars str. 447/1"), text("State and City Haryana Karnal"));
+        //verifying created person
+        $(".table-responsive").shouldHave(
+                text("Student Name " + firstName + " " + lastName),
+                text("Student Email " + email),
+                text("Gender " + sex),
+                text("Mobile " + phone),
+                text("Date of Birth " + day + " " + month + "," + year),
+                text("Subjects " + subject1 + ", " + verifySubject2),
+                text("Hobbies " + hobby),
+                text("Picture " + photo),
+                text("Address " + address),
+                text("State and City " + state + " " + city));
     }
 }

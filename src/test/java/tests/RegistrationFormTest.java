@@ -1,4 +1,4 @@
-package toolsQA;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
@@ -27,6 +27,7 @@ public class RegistrationFormTest {
         $("#lastName").setValue("Mask");
         $("#userEmail").setValue("tesla-mail@space.com");
         $(byText("Female")).click();
+//        $("#gender-radio-2").selectRadio("Female");    -----    why this code isn't work?
         $("#userNumber").setValue("0676767676");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption("1998");
@@ -36,7 +37,7 @@ public class RegistrationFormTest {
         $("#subjectsInput").setValue("maths");
         $(byText("Maths")).click();
         $(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("picture/test.jpg");
+        $("#uploadPicture").uploadFromClasspath("pictures/test.jpg");
         $("#currentAddress").setValue("Mars str. 447/1");
         $("#state").scrollTo().click();
         $(byText("Haryana")).click();

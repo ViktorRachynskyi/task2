@@ -32,8 +32,8 @@ public class RegistrationFormTest {
         String hobby = "Music";
         String photo = "test.jpg";
         String address = "Mars str. 447/1";
-        String state = "Haryana";
-        String city = "Karnal";
+        String state = "NCR";
+        String city = "Delhi";
 
         open("/automation-practice-form");
 
@@ -60,6 +60,7 @@ public class RegistrationFormTest {
         $(byText(capitalizedSubject2)).click();
         $("#currentAddress").setValue(address);
         $("#state").scrollTo().click();
+        sleep(5000);
         $(byText(state)).click();
         $("#city").click();
         $(byText(city)).click();

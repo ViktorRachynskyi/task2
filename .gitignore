@@ -23,6 +23,7 @@
 *.tar.gz
 *.rar
 *.iml
+*.bat
 
 # Project gen files
 .idea

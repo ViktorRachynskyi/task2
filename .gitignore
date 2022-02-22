@@ -2,7 +2,7 @@
 *.class
 *.bin
 *.lock
-# Log file
+# ignire all logs
 *.log
 
 # BlueJ files
@@ -35,9 +35,3 @@ bin/
 out/
 logs/
 target/
-.classpath
-.project
-.settings/org.eclipse.buildship.core.prefs
-.vscode
-/gradlew
-/gradlew.bat

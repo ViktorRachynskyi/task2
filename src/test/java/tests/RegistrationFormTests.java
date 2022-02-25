@@ -29,9 +29,8 @@ public class RegistrationFormTests extends BaseUITest {
                 .city("Delhi")
                 .build();
 
-        open("/automation-practice-form");
-
         new RegistrationPage()
+                .openPage()
                 .fillRegistrationForm(user)
                 .submitForm()
                 .verifyThatUserCreated(user);

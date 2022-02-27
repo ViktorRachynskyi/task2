@@ -23,7 +23,7 @@ public class RegistrationFormTests extends BaseUITest {
                 .day("17")
                 .subject("Physics")
                 .hobby("Music")
-                .photo("test.jpg") // use file name
+                .photo("test.jpg") // use file name from resources package
                 .address("Mars str. 447/1")
                 .state("NCR")
                 .city("Delhi")

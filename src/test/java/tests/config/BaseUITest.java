@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class BaseUITest {
 
     @BeforeAll
-    @Step("BeforeAll method")
     public static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
@@ -30,7 +29,6 @@ public class BaseUITest {
     }
 
     @AfterEach
-    @Step("AfterEach method")
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();

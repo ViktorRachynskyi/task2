@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import models.User;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage {
 
+    @Step("Fill registration form")
     public RegistrationPage fillRegistrationForm(User user) {
 
         // fields
@@ -39,13 +41,13 @@ public class RegistrationPage {
         return this;
     }
 
-
+    @Step("Click \"Submit\" button")
     public RegistrationPage submitForm() {
         $("#submit").click();
         return this;
     }
 
-
+    @Step("Verify that User created correct")
     public void verifyThatUserCreated(User user) {
         $(".table-responsive").shouldHave(
                 text("Student Name " + user.getFirstName() + " " + user.getLastName()),

@@ -7,6 +7,7 @@ import tests.config.BaseUITest;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@DisplayName("Registration page Tests")
 public class RegistrationFormTests extends BaseUITest {
 
     @Test

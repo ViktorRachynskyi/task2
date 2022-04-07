@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import models.User;
+import org.junit.jupiter.api.DisplayName;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

@@ -7,8 +7,15 @@ import org.junit.jupiter.api.DisplayName;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
+
+    @Step("Open registration page")
+    public RegistrationPage openRegistrationPage() {
+        open("/automation-practice-form");
+        return this;
+    }
 
     @Step("Fill registration form")
     public RegistrationPage fillRegistrationForm(User user) {

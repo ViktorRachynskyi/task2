@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.*;
 import models.User;
 import pages.RegistrationPage;
@@ -30,9 +31,8 @@ public class RegistrationFormTests extends BaseUITest {
                 .city("Delhi")
                 .build();
 
-        open("/automation-practice-form");
-
         new RegistrationPage()
+                .openRegistrationPage()
                 .fillRegistrationForm(user)
                 .submitForm()
                 .verifyThatUserCreated(user);

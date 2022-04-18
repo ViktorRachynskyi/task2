@@ -12,6 +12,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationFormTests extends BaseUITest {
 
     @Test
+    void firstTest() {
+        System.out.println("hello");
+    }
+
+    @Test
     void registrationFormTest() {
 
         User user = User.builder()

@@ -7,13 +7,14 @@ import pages.RegistrationPage;
 import tests.config.BaseUITest;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Registration page Tests")
 public class RegistrationFormTests extends BaseUITest {
 
     @Test
     void firstTest() {
-        System.out.println("hello");
+        assertTrue(true);
     }
 
     @Test
